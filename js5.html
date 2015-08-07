@@ -1,0 +1,130 @@
+<html>
+  <head>
+
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script>
+
+var temp_type = "f";
+
+function draw_text(context,text,x,y) 
+{
+    context.font = 'normal 25pt Calibri';
+
+   context.fillStyle = "black";
+   context.fillText(text, x, y);
+
+}
+
+function draw_rect(context,x,y,width,height,color)
+{
+    context.fillStyle = color;
+    context.fillRect(x, y, width, height);
+}
+
+function init()
+{
+  //http://www.html5canvastutorials.com/
+  var canvas = document.getElementById('weather_canvas');
+  var context = canvas.getContext('2d');
+
+  draw_text(context,"Your Weather Forecast",10,100);
+
+  canvas.addEventListener("mousedown", (function(){
+    console.log("MouseDown")
+    if (temp_type == "f") {
+      temp_type = "c"
+      get_inputs_then_fetch();
+    } else {
+      temp_type = "f"
+      get_inputs_then_fetch();
+    }
+  }),false);
+}
+
+var forecast_url_base = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&cnt=5";
+
+function get_weather_data(url,callback_function)
+{
+    $.ajax({
+  url: url,
+  success : callback_function,
+        error: function () { alert("Error Fetching Data")}});
+}
+
+function process_weather_data(data)
+{
+  var canvas = document.getElementById('weather_canvas');
+  var context = canvas.getContext('2d');
+  clear_canvas(context)
+
+  var margin = 100
+  var maximum_height = 240
+  var width = 35
+  var x = 10
+
+  var dt = new Date();  
+
+  $( data.list ).each( function() {
+    var tmin_height = this.temp.min * 2;
+    var tmax_height = this.temp.max * 2;
+    var min_y = (margin + maximum_height) - tmin_height;
+    var max_y = (margin + maximum_height) - tmax_height;
+    dt.setDate(dt.getDate() + 1);
+
+    draw_text(context,(dt.getMonth()+1 + "/" + dt.getDate()),x+20,margin + maximum_height + 30);
+
+    draw_rect(context,x,min_y,width,tmin_height,"yellow");
+    draw_text(context,parseInt(this.temp.min),x,margin + maximum_height);
+
+    x += 40;
+    draw_rect(context,x,max_y,width,tmax_height,"#8066B3");
+    draw_text(context,parseInt(this.temp.max),x,margin + maximum_height);
+    x += 50;
+  });
+}
+
+function get_inputs_then_fetch()
+{
+  if (temp_type == "f") {
+    temp_url = "&units=imperial"
+  } else {
+    temp_url = "&units=metric"
+  }
+
+  var city = $("#city_input").val();
+  if (city.length == 0 ){
+    alert("Not what I asked for");
+  } else {
+    forecast_url_test = forecast_url_base + temp_url + "&q=" + city;
+    get_weather_data(forecast_url_test,process_weather_data);
+  }
+}
+
+function clear_canvas(context)
+{
+    context.clearRect(0, 0, 1000, 400);
+    context.rect(0,0,1000,400);
+    context.fillStyle="white";
+    context.fill();
+    draw_text(context,"Weather HTML5 Canvas App",10,100);
+}
+
+</script>
+</head>
+
+<h1>Results</h1>
+Get the weather graph for
+<input type="text" placeholder="City" id="city_input"> 
+
+<button type="button" onclick="get_inputs_then_fetch()">Submit</button>
+
+<div id="results_div"></div>
+
+</script>
+
+<body onload="init();">
+
+  <canvas id="weather_canvas" width="1000" height="400"></canvas>
+
+</body>
+</html>
