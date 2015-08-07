@@ -1,0 +1,39 @@
+/*h1 {
+	color: red;
+	padding-top: 40px;
+}
+
+h1.test2 { color: black;} 
+11points
+
+#test {color:black;}
+
+100 points
+
+li {
+	margin-bottom: 50px;
+}
+
+div.blah h1.test2 a#select {
+	color: black;
+}
+
+123 points
+
+a {
+	color: black;
+}
+
+a:hover{
+	color: red;
+}
+
+nav div a#home {
+	float: right;
+}*/
+
+@media only screen and (min-width: 898px) and (max-width: 979px) {
+	h1 {
+		color: red !important;
+	}
+}

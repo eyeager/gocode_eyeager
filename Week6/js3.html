@@ -1,0 +1,142 @@
+<!--
+
+Notes:
+1) Wrap all your javascript/jquery in a <script type="text/javascript"></script> tag
+
+2) Use $(document).ready(function() {}); This only loads the jquery after the entire DOM is loaded
+
+3) Typically, <script> tags are kept at the bottom of the page in the html.
+
+Here is the list of most commonly used jQuery API functions:
+
+find(): Selects elements based on the provided selector string
+hide(): Hides an element if it was visible
+show(): Shows an element if it was hidden
+html(): Gets or sets an inner HTML of an element
+append() Injects an element into the DOM after the selected element
+prepend() Injects an element into the DOM before the selected element
+on(): Attaches an event listener to an element
+off() Detaches an event listener from an element
+css(): Gets or sets the style attribute value of an element
+attr() Gets or sets any attribute of an element
+val(): Gets or sets the value attribute of an element
+text(): Gets the combined text of an element and its children
+each(): Iterates over a set of matched elements -->
+
+<html>
+  <head>
+<style>
+	div#expander {
+	  width: 100px;
+	  height: 100px;
+	  background-color: blue;
+	}
+</style>
+
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+
+<script>
+
+$(document).ready(function() {
+	$('h1').val('Hello');
+});
+
+function update()
+{
+
+    var element = $("#p_tag");
+    
+    element.html("Jquery simplifies getting and setting elements");
+}
+
+$(document).ready(function () {
+	$( "#clickme" ).click(function() {
+	  $( "#book" ).animate({
+	    opacity: 0.25,
+	    left: "+=50",
+	    height: "toggle"
+	  }, 500, function() {
+	    // Animation complete.
+	  });
+	});
+});
+</script>
+
+<body>
+
+<h1>Jquery - Lightweight JavaScript library</h1>
+
+Helps simplify many common operations including ajax calls, as well as hide and even out browswer differences.
+
+<a href="https://jquery.com/">JQuery</a>
+
+<h1>Manipulating with JQuery</h1>
+
+<p id="p_tag">
+
+Some text</p>
+
+<button type="button" onclick="update()">Submit</button>
+
+<div id="clickme">
+  Click here
+</div>
+
+<img id="book" src="https://switch-production-herokuapp-com.global.ssl.fastly.net/assets/switch_logo_sm-9a2ba92daffba58b8b23e561687edaee.png" alt="" width="100" height="123" style="position: relative; left: 10px;">
+
+<!-- Challenges -->
+
+<!-- 1.  Write code in jQuery to animate the #expander div, expanding it from 100 x 100 pixels to 200 x 200 pixels over the course of three seconds. 
+
+
+Use the animate() jquery function. http://api.jquery.com/animate/.  Also use the jquery click() or on.("click", methods to activiate this animation when the button is clicked. -->
+
+<div id="expander"></div>
+<button id="clickmenow">Click me now</button>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Do Stuff Here
+		$( "#clickmenow" ).click(function() {
+		$( "#expander" ).animate({
+		    height: "200",
+		    width: "200",
+		  }, 3000, function() {
+		    // Animation complete.
+		  });
+		});
+	});
+</script>
+
+<!-- 2.  Using jquery append() - append "<h1>Hello</h1>"" to this div with id "appendme" -->
+<div id="appendme"></div>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Do Stuff Here
+		$( "#appendme" ).append("<h1>Hello</h1>")
+	});
+</script>
+
+<!-- 3. BONUS: Understand and use the each method in jquery - this is hard - you need to research $(this) and how to use the 'this' keyword  -->
+
+
+
+<div class="button width120 height30 iconLeft colorRed"></div>
+<div class="button width180 height20 iconPlus colorBlue"></div>
+<div class="button width200 height10 iconStar colorGreen"></div>
+<div class="button width110 height60 iconBack colorOrange"></div>
+
+<script type="text/javascript">
+	var sum = 0
+	$(".button").each(function(){
+		var class_content = $(this).attr("class")
+		var something = class_content.slice(12,15)
+	});
+	alert("Width sum: " + sum)
+	    // Get the width from each of the classes below and add up all the numbers (e.g. 120 + 180 + 200 + 110).  Use alert to print it to the screen)
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,14 @@
+<h1>Index</h1>
+<p>Heya</p>
+
+<h1>{{Name}}</h1>
+
+{% if Name %}
+	<ul>
+		{% for name in Name %}
+			<li>{{ name }}</li>
+		{% endfor %}
+	</ul>
+{% else %}
+	<p>No name for dogs are available.</p>
+{% endif %}

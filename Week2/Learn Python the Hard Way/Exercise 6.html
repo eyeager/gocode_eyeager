@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://learnpythonthehardway.org/book/ex6.html -->
+<html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./Exercise 6_files/fonts.css" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="twitter:creator" content="@lzsthw">
+        <title>Learn Python The Hard Way</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/pure.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/pygments.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/main.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/nav.css" rel="stylesheet">
+        <style>
+        </style>
+ 
+        
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/">
+<title>Exercise 6: Strings and Text</title>
+    <style type="text/css"></style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+    <body id="wrapper" data-twttr-rendered="true" data-pinterest-extension-installed="cr1.37">
+        <div class="master-logo-wrapper clearfix">
+            <a href="http://learnpythonthehardway.org/book/index.html">
+                <div class="python-logo-sprite"></div>
+            </a>
+                <span class="edition-3"><img src="./Exercise 6_files/3rd-edition-cloud.png"></span>
+        </div><!-- /.master-logo-wrapper -->
+
+        <div style="clear: both;">
+
+        <div id="main">
+            <div class="chapters-wrapper">
+                  <nav id="chapters">
+                      <div class="masthead-title"></div>
+                      <ul class="masthead">
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/">
+                                  <div class="nav-tcontents">
+                                      <img src="./Exercise 6_files/nav-contents.png"><br>
+                                  main
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex6.html#video">
+                                  <div class="nav-play-video" id="#video_toggle_icon">
+                                      <img src="./Exercise 6_files/nav-play.png"><br>
+                                      play video
+                                      <div class="line-2">(this chapter)</div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex5.html" id="prev_link">
+                                  <div class="nav-previous">
+                                      <img src="./Exercise 6_files/nav-previous.png"><br>
+                                      previous
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex7.html" id="next_link">
+                                  <div class="nav-next">
+                                      <img src="./Exercise 6_files/nav-next.png"><br>
+                                      next
+                                  </div>
+                              </a>
+                          </li>
+                          <li><!-- AMBULANCE ICON -->
+                              <a href="http://learnpythonthehardway.org/book/help.html" id="">
+                                  <div class="ambulance">
+                                      <img src="./Exercise 6_files/help-ambulance.png"><br>
+                                      help
+                                  </div>
+                              </a>
+                          </li>
+                          <li id="follow">
+                                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Exercise 6_files/follow_button.c2221624a19804fbe9017920859c89ce.en.html" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 59px; height: 20px;"></iframe>
+                                <script type="text/javascript" async="" src="./Exercise 6_files/ga.js"></script><script id="twitter-wjs" src="./Exercise 6_files/widgets.js"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                           </li>
+
+                      </ul><!-- /.masthead -->
+                      <!--<img src='images/fa-bullhorn.png' />-->
+                  </nav><!-- /.chapters -->
+            </div><!-- /.chapters-wrapper -->
+
+        <!--- RST STARTS -->
+            <h1 class="title">Exercise 6: Strings and Text</h1>
+            <p id="p0">While you have been writing strings, you still do not know what they do.  In this exercise we create a bunch of variables with complex strings so you can see what they are for.  First an explanation of strings.</p>
+<p id="p1">A string is usually a bit of text you want to display to someone, or "export" out of the program you are writing.  Python knows you want something to be a string when you put either <tt class="docutils literal">"</tt> (double-quotes) or <tt class="docutils literal">'</tt> (single-quotes) around the text.  You saw this many times with your use of <tt class="docutils literal">print</tt> when you put the text you want to go inside the string inside <tt class="docutils literal">"</tt> or <tt class="docutils literal">'</tt> after the <tt class="docutils literal">print</tt> to print the string.</p>
+<p id="p2">Strings may contain the format characters you have discovered so far.  You simply put the formatted variables in the string, and then a <tt class="docutils literal">%</tt> (percent) character, followed by the variable.  The <em>only</em> catch is that if you want multiple formats in your string to print multiple variables, you need to put them inside <tt class="docutils literal">( )</tt> (parenthesis) separated by <tt class="docutils literal">,</tt> (commas).  It's as if you were telling me to buy you a list of items from the store and you said, "I want milk, eggs, bread, and soup."  Only as a programmer we say, "(milk, eggs, bread, soup)."</p>
+<p id="p3">We will now type in a whole bunch of strings, variables, and formats, and print them.  You will also practice using short abbreviated variable names.  Programmers love saving time at your expense by using annoyingly short and cryptic variable names, so let's get you started reading and writing them early on.</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><a name="python--ex6.py-idio.html-1"></a><span class="n">x</span> <span class="o">=</span> <span class="s">"There are </span><span class="si">%d</span><span class="s"> types of people."</span> <span class="o">%</span> <span class="mi">10</span>
+<a name="python--ex6.py-idio.html-2"></a><span class="n">binary</span> <span class="o">=</span> <span class="s">"binary"</span>
+<a name="python--ex6.py-idio.html-3"></a><span class="n">do_not</span> <span class="o">=</span> <span class="s">"don't"</span>
+<a name="python--ex6.py-idio.html-4"></a><span class="n">y</span> <span class="o">=</span> <span class="s">"Those who know </span><span class="si">%s</span><span class="s"> and those who </span><span class="si">%s</span><span class="s">."</span> <span class="o">%</span> <span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">do_not</span><span class="p">)</span>
+<a name="python--ex6.py-idio.html-5"></a>
+<a name="python--ex6.py-idio.html-6"></a><span class="k">print</span> <span class="n">x</span>
+<a name="python--ex6.py-idio.html-7"></a><span class="k">print</span> <span class="n">y</span>
+<a name="python--ex6.py-idio.html-8"></a>
+<a name="python--ex6.py-idio.html-9"></a><span class="k">print</span> <span class="s">"I said: </span><span class="si">%r</span><span class="s">."</span> <span class="o">%</span> <span class="n">x</span>
+<a name="python--ex6.py-idio.html-10"></a><span class="k">print</span> <span class="s">"I also said: '</span><span class="si">%s</span><span class="s">'."</span> <span class="o">%</span> <span class="n">y</span>
+<a name="python--ex6.py-idio.html-11"></a>
+<a name="python--ex6.py-idio.html-12"></a><span class="n">hilarious</span> <span class="o">=</span> <span class="bp">False</span>
+<a name="python--ex6.py-idio.html-13"></a><span class="n">joke_evaluation</span> <span class="o">=</span> <span class="s">"Isn't that joke so funny?! </span><span class="si">%r</span><span class="s">"</span>
+<a name="python--ex6.py-idio.html-14"></a>
+<a name="python--ex6.py-idio.html-15"></a><span class="k">print</span> <span class="n">joke_evaluation</span> <span class="o">%</span> <span class="n">hilarious</span>
+<a name="python--ex6.py-idio.html-16"></a>
+<a name="python--ex6.py-idio.html-17"></a><span class="n">w</span> <span class="o">=</span> <span class="s">"This is the left side of..."</span>
+<a name="python--ex6.py-idio.html-18"></a><span class="n">e</span> <span class="o">=</span> <span class="s">"a string with a right side."</span>
+<a name="python--ex6.py-idio.html-19"></a>
+<a name="python--ex6.py-idio.html-20"></a><span class="k">print</span> <span class="n">w</span> <span class="o">+</span> <span class="n">e</span>
+</pre></div>
+</td></tr></tbody></table><div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="python--ex6.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex6.py
+<a name="python--ex6.sh-idio-shint-pyg.html-2"></a><span class="go">There are 10 types of people.</span>
+<a name="python--ex6.sh-idio-shint-pyg.html-3"></a><span class="go">Those who know binary and those who don't.</span>
+<a name="python--ex6.sh-idio-shint-pyg.html-4"></a><span class="go">I said: 'There are 10 types of people.'.</span>
+<a name="python--ex6.sh-idio-shint-pyg.html-5"></a><span class="go">I also said: 'Those who know binary and those who don't.'.</span>
+<a name="python--ex6.sh-idio-shint-pyg.html-6"></a><span class="go">Isn't that joke so funny?! False</span>
+<a name="python--ex6.sh-idio-shint-pyg.html-7"></a><span class="go">This is the left side of...a string with a right side.</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>Go through this program and write a comment above each line explaining it.</li>
+<li>Find all the places where a string is put inside a string.  There are four places.</li>
+<li>Are you sure there are only four places?  How do you know?  Maybe I like lying.</li>
+<li>Explain why adding the two strings <tt class="docutils literal">w</tt> and <tt class="docutils literal">e</tt> with <tt class="docutils literal">+</tt> makes a longer string.</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>What is the difference between <tt class="docutils literal">%r</tt> and <tt class="docutils literal">%s</tt>?</dt>
+<dd>Use the <tt class="docutils literal">%r</tt> for debugging, since it displays the "raw" data of the variable, but the others are used for displaying to users.</dd>
+<dt>What's the point of <tt class="docutils literal">%s</tt> and <tt class="docutils literal">%d</tt> when you can just use <tt class="docutils literal">%r</tt>?</dt>
+<dd>The <tt class="docutils literal">%r</tt> is best for debugging, and the other formats are for actually displaying variables to users.</dd>
+<dt>I get the error <tt class="docutils literal">TypeError: not all arguments converted during string formatting</tt>.</dt>
+<dd>You need to make sure that the line of code is exactly the same. What happens in this error is you have more <tt class="docutils literal">%</tt> format characters in the string than variables to put in them.  Go back and figure out what you did wrong.</dd>
+<dt>Why do you put <tt class="docutils literal">'</tt> (single-quotes) around some strings and not others?</dt>
+<dd>Mostly it's because of style, but I'll use a single-quote inside a string that has double-quotes.  Look at line 10 to see how I'm doing that.If you thought the joke was funny could you write <tt class="docutils literal">hilarious = True</tt>?
+Yes, and you'll learn more about these boolean values in Exercise 27.</dd>
+</dl>
+</div>
+        <!-- RST ENDS -->
+
+            <!-- /.help-icon -->
+        <div id="video_holder">
+            <h1>Video</h1>
+            <div id="video" class="row inner">
+                <div class="small-12 small-centered columns">
+                    <div data-paydiv_product="2" id="paydiv"><div class="row">
+    <div class="large-7 columns">
+        
+
+    
+        <h2><span>Purchase The Videos For $29.59<span></span></span></h2>
+
+    <p>For just $29.59 you can get access to all the videos for <a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a>, <b>plus</b> a PDF of
+    the book and no more popups all in this one location. For $29.59 you get:
+    </p>
+    <ul>
+        <li>All 52 videos, 1 per exercise, almost 2G of video.</li>
+        <li>A PDF of the book.</li>
+        <li>Email help from the author.</li>
+        <li><a href="https://paydiv.io/products/contents/2/">See a list of everything you get before you buy.</a></li>
+    </ul>
+
+    <p>When you buy the videos they will immediately show up <b>right here</b>
+    without any hassles.
+    </p>
+
+    
+
+    <hr>
+    <a href="https://paydiv.io/access/reactivate/">Already Paid? Reactivate Your Purchase Right Now!</a>
+
+    </div>
+    <div class="large-5 columns">
+        
+    
+    <h2><span>Buying Is Easy</span></h2>
+    
+
+    <p>Buying is easy.  Just fill out the form below and we'll get started.
+    </p>
+
+    <form action="https://paydiv.io/access/buy/2/" method="POST" id="purchase_form">
+        <label>
+            <span>Full Name</span>
+            <input type="text" size="20" name="full_name" placeholder="Full Name">
+        </label>
+            
+        <label>
+            <span>Email Address</span>
+            <input type="text" size="20" name="email" placeholder="Email Address">
+        </label>
+
+        
+
+        <div class="large-12 columns">
+  <label for="paywith_credit">
+    <input type="radio" checked="" name="payment_method" value="ccard" id="paywith_credit">
+    <span class="imgs">
+      <img src="./Exercise 6_files/pay_visa.png" alt="visa">
+      <img src="./Exercise 6_files/pay_master.png" alt="mastercard">
+      <img src="./Exercise 6_files/pay_express.png" alt="american express">
+    </span>
+    Pay With Credit Card (by Stripe™)
+  </label>
+</div>
+<div class="large-12 columns">
+  <label for="paywith_paypal">
+    <input type="radio" name="payment_method" value="paypal" id="paywith_paypal">
+    <span class="imgs">
+      <img src="./Exercise 6_files/pay_pal.png" alt="paypal">
+    </span>
+    Use your PayPal™ account.
+  </label>
+</div>
+
+
+        <button id="buy-button" type="submit">Buy Learn Python The Hard Way, 3rd Edition</button>
+
+      
+    </form>
+
+    </div>
+</div></div>
+                </div>
+            </div>
+        </div>
+
+        </div><!-- /#main -->
+
+        <div class="ad-deck gold" id="footer">
+            <ul class="retailers clearfix">
+                <li>
+                    <a href="https://paydiv.io/access/buy/2/">
+                        <div class="retailer-name">Zed Shaw</div>
+                        <div class="book-type">PDF + Videos + Updates</div>
+                        <div class="book-price">$29.95</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.amazon.com/gp/product/0321884914/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321884914&linkCode=as2&tag=lepythhawa-20">
+                        <div class="retailer-name">Amazon</div>
+                        <div class="book-type">Paper + DVD</div>
+                        <div class="book-price">$29.95</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.amazon.com/gp/product/B00FGUS948/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00FGUS948&linkCode=as2&tag=lepythhawa-20">
+                        <div class="retailer-name">Amazon</div>
+                        <div class="book-type">Kindle (No Videos)</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.barnesandnoble.com/w/learn-python-the-hard-way-zed-shaw/1112055406?ean=9780321884916">
+                        <div class="retailer-name">B&amp;N</div>
+                        <div class="book-type">Paper + DVD</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.barnesandnoble.com/w/learn-python-the-hard-way-zed-shaw/1112055406?ean=9780133124347&itm=1&usri=learn+python+the+hard+way">
+                        <div class="retailer-name">B&amp;N</div>
+                        <div class="book-type">Nook (No Video)</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.informit.com/store/learn-python-the-hard-way-a-very-simple-introduction-9780321884916">
+                        <div class="retailer-name">InformIT</div>
+                        <div class="book-type">eBook + Paper</div>
+                        <div class="book-price">$43.19</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://ruby.learncodethehardway.org/book/">
+                        <div class="retailer-name">Interested In Ruby?</div>
+                        <div class="book-type">Ruby is also a great language.</div>
+                        <div class="book-price">Learn Ruby The Hard Way</div>
+                    </a>
+                </li>
+
+            </ul><!-- /.places -->
+        </div><!-- /#ad-deck -->
+
+        <script src="./Exercise 6_files/jquery.js"></script>
+        <script src="./Exercise 6_files/index.js"></script>
+        <script src="./Exercise 6_files/jzed.js"></script>
+        <script src="./Exercise 6_files/video.js"></script>
+        <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+        <script src="./Exercise 6_files/paydiv.js"></script>
+        <script src="./Exercise 6_files/app.js"></script>
+        <script src="./Exercise 6_files/littools.js"></script>
+        <script type="text/javascript">
+        
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-24168052-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        
+        </script>
+
+
+        <script src="./Exercise 6_files/littools.js"></script>
+
+        
+
+
+</div><span style="height: 20px; width: 40px; position: absolute; opacity: 0.85; z-index: 8675309; display: none; cursor: pointer; border: none; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAADU0lEQVR42s2WXUhTYRjHz0VEVPRFUGmtVEaFUZFhHxBhsotCU5JwBWEf1EWEEVHQx4UfFWYkFa2biPJiXbUta33OXFtuUXMzJ4bK3Nqay7m5NeZq6h/tPQ+xU20zugjOxR/+7/O8539+5znnwMtNTExwJtMb3L/fiLv3botCSmUjeCaejTOb39AiFothfHxcFIrHY8RksZjBsckJcOIRMfFsHD/SsbExUYpnI8DR0dGUGjSb0byhEJp5Uqg5CTSzc2CQleJbMEj9/ywBcGRkJEk9DQqouEVQT1sK444yWI9UonmTjGqauVLEIlHa9x8lAMbj8SSpp0rwKGMVvg8P46vbg0C7na8z8JsMcgHe7jlEa+edRhiLy8n/TUMfu6EvLElk+U0WtGwrTrdfAGQf5J8iiK4LVzDU28t8JtMSocf8E+l68myaNFXm/6rXslLK7ay5TOunuRvZWpJuvwAYjUaTpOIWoquuAZ219RTaxKYp9BbjycoN5FvL9qH9TBX5rvoGdJythvXYSTxdtRnWylO/ZdqrLsGwszzhWQ593z2KlAwCYCQSSZJ6ehZ0W7bD9VBLgN0NCqr3qR7R2rBrL3pu3Sb/7nDlz2uy6cG0OXk0GTbZXzNp8trsPAQdTj6frlWzN2DcXZGKQQAMh8NJ6rpyHe+PnkCr/CAFdZyvpfpjuvkifLF9wIt1Wwlo0OHie1RvWrKa93RjzfzliTzPKz3ltB0/Tevmwp14wGUgHAzSOoUEwFAolFaaBSuhnslPRkJexUJtZ6v5HtUeLswl33n1BgEY5fvhs9sJ3FAiT+QYyyvoAQJuD0KBAFRTJNAuz5/s3gJgMBhMJwrVFRThM5tY5zUF/A4X1f2fvQTRLCuBreoim0YmAbqNJryvPEXeeq46kaNdkQ/1HCncbJKPs9ZSv2VHGfWsZ2hfkhKAfr8/pdxWKx4wwD69PmVfNSOL+lr2w+gYqHpWDtXt1xQ8AMlWU0e1lqLd/APRHoP8AJqWrQG9gYxcPMsvSJUvAA4MDKTUJ7MZLaVy8v+qT21tcDx/OemePr0RTkNrur4A6PP5xCgBsL+/X4wiQDpuuVxOeL1eMYmYeDY6sOp0z+B0OuHxeEQhxkJMFosJiSO/UinOI/8Pc+l7KKArAT8AAAAASUVORK5CYII=); background-color: transparent;"></span></body></html>

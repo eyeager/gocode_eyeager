@@ -1,0 +1,31 @@
+{% extends "ecommerce/base.html" %}
+{% block content %}
+
+<h2>Your Cart</h2>
+
+<body>
+		{% for each in products %}
+		<p
+			<b>Name</b>: {{each.product.name}} <br>
+			<b>Description</b>: {{each.product.description}} <br>
+			<b>Price</b>: ${{each.product.price}} <br>
+			<b>Quantity</b>: {{each.quantity}}<br>
+			<form action="/product/removecart/{{each.id}}" method="POST">
+				{% csrf_token %}
+				<input type="submit" value="Remove from Cart">
+			</form>
+			<br>
+		</p>
+		{% endfor %}
+		<br>
+	<p>
+		{% if total %}
+			<b>Total:</b> ${{total}}
+		{% endif %}
+		<form action="/product/checkout/" method="POST">
+			{% csrf_token %}
+			<input type="submit" value="Purchase" name="purchase">
+		</form>
+	</p>
+</body>
+{% endblock %}

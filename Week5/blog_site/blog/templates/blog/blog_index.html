@@ -1,0 +1,11 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'blog/css/html_template.css' %}">
+
+<h1>Blog Index Page</h1>
+<h2>All Blogs</h2>
+<p>
+	{% for blog in blogs %}
+		<a href={{blog.id}}>{{ blog.title }}</a>
+		<br>
+	{% endfor %}
+</p>

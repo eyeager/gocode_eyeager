@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="html_template.css">
+	</head>
+	<body>
+		<h1></h1>
+		<h2>Create New Post</h2>
+		<form action="/blog/create" method="post">
+			<label for "post_date">Date of Post: </label>
+			<br>
+			<input type="date" name="post_date" required>
+			<br><br>
+			<label for "post_name">Post Title: </label>
+			<br>
+			<input type="text" name="post_name" required>
+			<br><br>
+			<label for "post_text">Post Content: </label>
+			<br>
+			<textarea rows="10" name="post_text" required>Add your blog post here</textarea>
+			<br><br>
+			<input type="submit" name="submit" value="Post">
+		</form>
+	</body>
+</html>

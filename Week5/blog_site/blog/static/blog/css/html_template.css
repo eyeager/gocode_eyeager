@@ -1,0 +1,33 @@
+* {
+	font-family: arial;
+}
+
+body {
+    background-color: lightblue;
+}
+
+h1{
+	padding-left: 75px;
+	padding-top: 25;
+}
+
+h2{
+    color: white;
+    background: black;
+    margin-left: -8px;
+    margin-right: -8px;
+    margin-top: 25px;
+    padding-left: 83px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+p{
+    width: 40em;
+    margin: 0 auto 1em auto;
+    text-align: left;
+}
+
+form{
+    text-align: center;
+}

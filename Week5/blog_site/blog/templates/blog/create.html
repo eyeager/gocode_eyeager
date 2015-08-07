@@ -1,0 +1,10 @@
+<form action="/blog/create/" method="POST">
+	{% csrf_token %}
+	Post Title: <br>
+	<input type="text" name="title">
+	<br>
+	Text: <br>
+	<input type="text" name="text">
+	<br><br>
+	<input type="submit" value="Submit">
+</form>

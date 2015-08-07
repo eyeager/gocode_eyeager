@@ -1,0 +1,31 @@
+{% extends "ecommerce/base.html" %}
+{% block content %}
+<h2>All Products</h2>
+<p>
+	{% for product in products %}
+		<a href={{product.id}}>{{product.name}}</a>: ${{product.price}}
+		<br>{{product.description}}
+		<br><br>
+	{% endfor %}
+	<div class="pagination">
+		<span class="step-links">
+			Pages: 
+			{% if products.has_previous %}
+				<a href="?page={{products.previous_page_number}}">previous</a>
+			{% endif %}
+
+			{% for number in page_array %}
+				{% if number == products.number %}
+					<a href="?page={{ number }}"><b>{{ number }}</b></a>
+				{% else %}
+					<a href="?page={{ number }}">{{ number }}</a>
+				{% endif %}
+			{% endfor %}
+
+			{% if products.has_next %}
+				<a href="?page={{products.next_page_number}}">next</a>
+			{% endif %}
+		</span>
+	</div>
+</p>
+{% endblock %}

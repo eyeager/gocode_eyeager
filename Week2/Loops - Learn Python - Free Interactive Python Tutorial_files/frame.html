@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://urish.github.io/learnpython/frame.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="http://learnpython.org/static/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.6/animate.css">
+
+		<style>
+			body {
+				text-align: center;
+				width: 100%;
+			}
+
+			h2 {
+				margin: 16px 0;
+			}
+
+			#player-container {
+				position: relative;
+				height: 315px;
+				width: 560px;
+				margin: 0 auto;
+				background-color: black;
+			}
+
+			#player {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+
+			#video-overlay {
+				position: absolute;
+				top: 20px;
+				left: 50px;
+				border: solid #999 4px;
+				border-radius: 3px;
+				bottom: 46px;
+				right: 50px;
+				padding: 16px;
+				background: #fdfdfd;
+				text-align: left;
+			}
+
+			.call-to-action {
+				margin-top: 14px;
+			}
+
+			.banner-border {
+				background-color: #cde364;
+				border-top: 3px dotted #000;
+				border-bottom: 3px dotted #000;
+				box-shadow: inset 0 -1px 0 0 #000, inset 0 1px 0 0 #000, 0 1px 0 0 #000, 0 -1px 0 0 #000;
+				margin-bottom: 1px;
+				padding-bottom: 16px;
+			}
+
+		</style>
+	<style type="text/css"></style></head>
+	<body>
+		<div class="banner-border">
+			<h2>Python - Up and Running in 90 Minutes</h2>
+
+			<div id="player-container">
+				<iframe id="player" frameborder="0" allowfullscreen="1" title="YouTube video player" width="560" height="315" src="eO7jQQCAacc.html"></iframe>
+
+				<div id="video-overlay" style="display:none;">
+					<img style="float:right" src="moneyback.png" alt="money back">
+					<strong>Learn about</strong>
+					<ul>
+						<li>Dictionaries</li>
+						<li>Loops and Control Flow</li>
+						<li>Functions</li>
+						<li>Classes</li>
+						<li>Object Oriented Programming</li>
+						<li>Modules and Packages</li>
+						<li>Generators</li>
+						<li>Advanced Functions</li>
+					</ul>
+
+					★ GET STARTED WITH PYTHON FOR 29$ ★<br>
+				</div>
+			</div>
+
+			<div class="call-to-action">
+				<button class="btn btn-primary animated rubberBand" id="enroll-button">Enroll to This Course for
+					29$
+				</button>
+			</div>
+		</div>
+
+		<form id="payment" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="display:none">
+			<input type="hidden" name="cmd" value="_xclick">
+			<input type="hidden" name="business" value="ron.reiter@gmail.com">
+			<input type="hidden" name="item_name" value="LearnPython.org Video Course">
+			<input type="hidden" name="item_number" value="9092">
+			<input type="hidden" name="currency_code" value="USD">
+			<input type="hidden" name="amount" value="29">
+			<input type="hidden" name="custom" value="">
+			<input type="hidden" name="return" value="http://www.learnpython.org/?purchase=1">
+			<input type="hidden" name="cancel_return" value="http://www.learnpython.org/">
+			<input class="btn btn-large" type="submit" value="Pay Now">
+		</form>
+
+		<script type="text/javascript" async="" src="mixpanel-2-latest.min.js"></script><script type="text/javascript" id="www-widgetapi-script" src="www-widgetapi.js" async=""></script><script src="iframe_api"></script>
+
+		<!-- start Mixpanel -->
+		<script type="text/javascript">(function (f, b) {
+			if (!b.__SV) {
+				var a, e, i, g;
+				window.mixpanel = b;
+				b._i = [];
+				b.init = function (a, e, d) {
+					function f(b, h) {
+						var a = h.split(".");
+						2 == a.length && (b = b[a[0]], h = a[1]);
+						b[h] = function () {
+							b.push([h].concat(Array.prototype.slice.call(arguments, 0)))
+						}
+					}
+
+					var c = b;
+					"undefined" !== typeof d ? c = b[d] = [] : d = "mixpanel";
+					c.people = c.people || [];
+					c.toString = function (b) {
+						var a = "mixpanel";
+						"mixpanel" !== d && (a += "." + d);
+						b || (a += " (stub)");
+						return a
+					};
+					c.people.toString = function () {
+						return c.toString(1) + ".people (stub)"
+					};
+					i = "disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+					for (g = 0; g < i.length; g++)f(c, i[g]);
+					b._i.push([a, e, d])
+				};
+				b.__SV = 1.2;
+				a = f.createElement("script");
+				a.type = "text/javascript";
+				a.async = !0;
+				a.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";
+				e = f.getElementsByTagName("script")[0];
+				e.parentNode.insertBefore(a, e)
+			}
+		})(document, window.mixpanel || []);
+		mixpanel.init("d781fda21de0bde4cd00287366b29e4c");</script>
+		<!-- end Mixpanel -->
+
+		<script type="text/javascript">
+			(function () {
+				'use strict';
+
+				// Analytics
+				if (location.hostname === 'localhost') {
+					mixpanel.disable();
+				}
+
+				// Video Overlay
+				function showVideoOverlay(value) {
+					document.getElementById('video-overlay').style.display = value ? 'block' : 'none';
+				}
+
+				// Youtube Embedding code
+				var player;
+				window.onYouTubeIframeAPIReady = function () {
+					player = new YT.Player('player', {
+						height: '315',
+						width: '560',
+						playerVars: {
+							rel: 0,
+							showinfo: 0
+						},
+						videoId: 'eO7jQQCAacc',
+						events: {
+							'onReady': onPlayerReady,
+							'onStateChange': onPlayerStateChange
+						}
+					});
+				};
+
+				function onPlayerReady() {
+//					mixpanel.track('Player Ready');
+				}
+
+				function onPlayerStateChange(e) {
+					if (e.data === YT.PlayerState.PLAYING) {
+						mixpanel.track('Video Playing');
+						showVideoOverlay(false);
+					}
+					if (e.data === YT.PlayerState.PAUSED) {
+						mixpanel.track('Video Paused', {
+							pauseTime: player.getCurrentTime()
+						});
+						showVideoOverlay(true);
+					}
+					if (e.data === YT.PlayerState.ENDED) {
+						mixpanel.track('Video Ended');
+						showVideoOverlay(true);
+					}
+				}
+
+				// Analytics - Mouse over
+				var hadMouseOver = false;
+
+				document.body.addEventListener('mouseover', function () {
+					if (!hadMouseOver) {
+						mixpanel.track('Mouse Over');
+						hadMouseOver = true;
+					}
+				});
+
+				// Enroll button
+				document.getElementById('enroll-button').addEventListener('click', function (e) {
+					mixpanel.track('Enroll');
+					document.getElementById('payment').submit();
+				});
+			})();
+		</script>
+	
+
+</body></html>

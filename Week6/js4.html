@@ -1,0 +1,137 @@
+<html>
+  <head>
+
+<script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+<script type="text/javascript">
+
+
+var forecast_url_base = "http://api.openweathermap.org/data/2.5/forecast/daily?mode=json&units=imperial";
+
+
+
+function get_weather_data(url,callback_function)
+{
+
+    $.ajax({
+	url: url,
+	success : callback_function,
+        error: function () { alert("Error Fetching Data")}});
+    
+
+}
+
+function process_weather_data(data)
+{
+  var table_data = "<table style=\"width:100%\"><tr><td>Day</td><td>High</td><td>Low</td> <td>Description</td></tr>"
+
+  var i = 1;
+
+  $( data.list ).each( function() {
+    table_data += ("<tr><td>" + i + "</td><td class=\"temp\">" + this.temp.max + "</td><td class=\"temp\">" + this.temp.min + "</td><td>" + this.weather[0].description + "</td></tr>");
+    i++;
+  });
+
+  $( "#results_div" ).append(table_data);
+  temp_colors()
+}
+
+function temp_colors()
+{
+  var temps = $(".temp")
+
+  // console.log(temps)
+  $( temps ).each(function() {
+    console.log(this)
+    console.log($(this).attr("class"))
+  })
+}
+
+function get_inputs_then_fetch()
+{
+  var days = $('#num_days_select :selected').text();
+  var city = $("#city_input").val();
+  if (city.length == 0 ){
+    alert("Not what I asked for");
+  } else {
+    forecast_url_test = forecast_url_base + "&q=" + city + "&cnt=" + days;
+    get_weather_data(forecast_url_test,process_weather_data);
+  }
+}
+
+
+</script>
+
+
+<body>
+
+<h1>Ajax</h1>
+
+With javascript we can do cool things client side to make a page dynamic. </br>
+</br>
+What would be even better is if the page can fetch new data without having to refresh the page.
+</br></br>
+Make a site feel more like a traditional desktop application then just a bunch of pages.
+</br></br>
+<h1> Client Side N Day Forcast Weather app </h1>
+
+OpenWeatherMap has an api that can get weather forecast for up to 16 days.
+
+We are going to build a page that can get the forecast for any city for any number days up to 
+5.</br>
+
+A sample output for one day would look like </br>
+
+City
+<table style="width:100%">
+  <tr>
+    <td>Day</td>
+    <td>High</td>
+    <td>Low</td> 
+    <td>Description</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>14.97</td>
+    <td>6.3</td> 
+    <td>sky is clear</td>
+  </tr>
+</table>
+
+</br>
+<a href="http://openweathermap.org/forecast">Open Weather Map</a>
+
+<ul>
+<li>Add a input field that asks the user for city.</li>
+<li>Add a drop down select with the day count upto 5</li>
+<li>Write code that when fetch is pressed get_inputs_then_fetch is called</li>
+<li>Update get_inputs_then_fetch to get the values of num_days_select and city_input</li>
+<li>Verify that some text has been entered in city_input if not through an alert and do nothing</li>
+<li>Build the correct url with number of days and city</li>
+<li>Call get_weather_data with that url and passing in process_data</li>
+<li>Fill out process_data to append a table matching the sample table to results_div</li>
+
+
+</ul>
+
+
+<h1>Results</h1>
+Get the weather for
+<input type="text" placeholder="City" id="city_input"> 
+for the past
+<select id='num_days_select'></select>
+day(s)
+
+<button type="button" onclick="get_inputs_then_fetch()">Submit</button>
+
+<script>
+var select = '';
+for (i=1;i<=5;i++){
+    select += '<option val=' + i + '>' + i + '</option>';
+}
+$('#num_days_select').html(select);
+</script>
+
+<div id="results_div"></div>
+
+</body>
+</html>

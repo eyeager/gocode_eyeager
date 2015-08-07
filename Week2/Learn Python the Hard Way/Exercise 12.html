@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://learnpythonthehardway.org/book/ex12.html -->
+<html class="no-js" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="./Exercise 12_files/fonts.css" rel="stylesheet" type="text/css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="twitter:creator" content="@lzsthw">
+        <title>Learn Python The Hard Way</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/pure.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/pygments.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/main.css" rel="stylesheet">
+        <link href="http://learnpythonthehardway.org/book/stylesheets/nav.css" rel="stylesheet">
+        <style>
+        </style>
+ 
+        
+<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/">
+<title>Exercise 12: Prompting People</title>
+    <style type="text/css"></style><style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style></head>
+    <body id="wrapper" data-twttr-rendered="true" data-pinterest-extension-installed="cr1.37">
+        <div class="master-logo-wrapper clearfix">
+            <a href="http://learnpythonthehardway.org/book/index.html">
+                <div class="python-logo-sprite"></div>
+            </a>
+                <span class="edition-3"><img src="./Exercise 12_files/3rd-edition-cloud.png"></span>
+        </div><!-- /.master-logo-wrapper -->
+
+        <div style="clear: both;">
+
+        <div id="main">
+            <div class="chapters-wrapper">
+                  <nav id="chapters">
+                      <div class="masthead-title"></div>
+                      <ul class="masthead">
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/">
+                                  <div class="nav-tcontents">
+                                      <img src="./Exercise 12_files/nav-contents.png"><br>
+                                  main
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex12.html#video">
+                                  <div class="nav-play-video" id="#video_toggle_icon">
+                                      <img src="./Exercise 12_files/nav-play.png"><br>
+                                      play video
+                                      <div class="line-2">(this chapter)</div>
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex11.html" id="prev_link">
+                                  <div class="nav-previous">
+                                      <img src="./Exercise 12_files/nav-previous.png"><br>
+                                      previous
+                                  </div>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="http://learnpythonthehardway.org/book/ex13.html" id="next_link">
+                                  <div class="nav-next">
+                                      <img src="./Exercise 12_files/nav-next.png"><br>
+                                      next
+                                  </div>
+                              </a>
+                          </li>
+                          <li><!-- AMBULANCE ICON -->
+                              <a href="http://learnpythonthehardway.org/book/help.html" id="">
+                                  <div class="ambulance">
+                                      <img src="./Exercise 12_files/help-ambulance.png"><br>
+                                      help
+                                  </div>
+                              </a>
+                          </li>
+                          <li id="follow">
+                                <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Exercise 12_files/follow_button.c2221624a19804fbe9017920859c89ce.en.html" class="twitter-follow-button twitter-follow-button" title="Twitter Follow Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 59px; height: 20px;"></iframe>
+                                <script type="text/javascript" async="" src="./Exercise 12_files/ga.js"></script><script id="twitter-wjs" src="./Exercise 12_files/widgets.js"></script><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                           </li>
+
+                      </ul><!-- /.masthead -->
+                      <!--<img src='images/fa-bullhorn.png' />-->
+                  </nav><!-- /.chapters -->
+            </div><!-- /.chapters-wrapper -->
+
+        <!--- RST STARTS -->
+            <h1 class="title">Exercise 12: Prompting People</h1>
+            <p id="p0">When you typed <tt class="docutils literal">raw_input()</tt> you were typing the <tt class="docutils literal">(</tt> and <tt class="docutils literal">)</tt> characters, which are <tt class="docutils literal">parenthesis</tt> characters.  This is similar to when you used them to do a format with extra variables, as in <tt class="docutils literal">"%s %s" % (x, y)</tt>.  For <tt class="docutils literal">raw_input</tt> you can also put in a prompt to show to a person so he knows what to type.  Put a string that you want for the prompt inside the <tt class="docutils literal">()</tt> so that it looks like this:</p>
+<pre class="code python literal-block"><span class="name">y</span> <span class="operator">=</span> <span class="name builtin">raw_input</span><span class="punctuation">(</span><span class="literal string">"Name? "</span><span class="punctuation">)</span>
+</pre>
+<p id="p1">This prompts the user with "Name?" and puts the result into the variable <tt class="docutils literal">y</tt>.  This is how you ask someone a question and get the answer.</p>
+<p id="p2">This means we can completely rewrite our previous exercise using just
+<tt class="docutils literal">raw_input</tt> to do all the prompting.</p>
+<table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><a name="python--ex12.py-idio.html-1"></a><span class="n">age</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"How old are you? "</span><span class="p">)</span>
+<a name="python--ex12.py-idio.html-2"></a><span class="n">height</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"How tall are you? "</span><span class="p">)</span>
+<a name="python--ex12.py-idio.html-3"></a><span class="n">weight</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">"How much do you weigh? "</span><span class="p">)</span>
+<a name="python--ex12.py-idio.html-4"></a>
+<a name="python--ex12.py-idio.html-5"></a><span class="k">print</span> <span class="s">"So, you're </span><span class="si">%r</span><span class="s"> old, </span><span class="si">%r</span><span class="s"> tall and </span><span class="si">%r</span><span class="s"> heavy."</span> <span class="o">%</span> <span class="p">(</span>
+<a name="python--ex12.py-idio.html-6"></a>    <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
+</pre></div>
+</td></tr></tbody></table><div class="section" id="what-you-should-see">
+<h1>What You Should See</h1>
+<div class="highlight"><pre><a name="python--ex12.sh-idio-shint-pyg.html-1"></a><span class="gp">$</span> python ex12.py
+<a name="python--ex12.sh-idio-shint-pyg.html-2"></a><span class="go">How old are you?  38</span>
+<a name="python--ex12.sh-idio-shint-pyg.html-3"></a><span class="go">How tall are you?  6'2"</span>
+<a name="python--ex12.sh-idio-shint-pyg.html-4"></a><span class="go">How much do you weigh?  180lbs</span>
+<a name="python--ex12.sh-idio-shint-pyg.html-5"></a><span class="go">So, you're '38' old, '6\'2"' tall and '180lbs' heavy.</span>
+</pre></div></div>
+<div class="section" id="study-drills">
+<h1>Study Drills</h1>
+<ol class="arabic simple">
+<li>In Terminal where you normally run <tt class="docutils literal">python</tt> to run your scripts, type <tt class="docutils literal">pydoc raw_input</tt>.  Read what it says.  If you're on Windows try <tt class="docutils literal">python <span class="pre">-m</span> pydoc raw_input</tt> instead.</li>
+<li>Get out of pydoc by typing <tt class="docutils literal">q</tt> to quit.</li>
+<li>Look online for what the <tt class="docutils literal">pydoc</tt> command does.</li>
+<li>Use pydoc to also read about <tt class="docutils literal">open</tt>, <tt class="docutils literal">file</tt>, <tt class="docutils literal">os</tt>, and <tt class="docutils literal">sys</tt>.  It's alright if you do not understand those; just read through and take notes about interesting things.</li>
+</ol>
+</div>
+<div class="section" id="common-student-questions">
+<h1>Common Student Questions</h1>
+<dl class="docutils">
+<dt>How come I get <tt class="docutils literal">SyntaxError: invalid syntax</tt> whenever I run <tt class="docutils literal">pydoc</tt>?</dt>
+<dd>You aren't running <tt class="docutils literal">pydoc</tt> from the command line; you're probably running it from inside <tt class="docutils literal">python</tt>.  Exit out of <tt class="docutils literal">python</tt> first.</dd>
+<dt>Why does my <tt class="docutils literal">pydoc</tt> not pause like yours does?</dt>
+<dd>Sometimes if the help document is short enough to fit on one screen then <tt class="docutils literal">pydoc</tt> will just print it.</dd>
+<dt>When I run <tt class="docutils literal">pydoc</tt> I get <tt class="docutils literal">more is not recognized as an internal</tt>.</dt>
+<dd>Some versions of Windows do not have that command, which means <tt class="docutils literal">pydoc</tt> is broken for you.  You can skip this Study Drill and just search online for Python documentation when you need it.</dd>
+<dt>Why would I use <tt class="docutils literal">%r</tt> over <tt class="docutils literal">%s</tt>?</dt>
+<dd>Remember <tt class="docutils literal">%r</tt> is for debugging and is "raw representation" while <tt class="docutils literal">%s</tt> is for display.  I will not answer this question again so you <em>must</em> memorize this fact.  This is the #1 thing people ask repeatedly, and asking the same question over and over means you aren't taking the time to memorize what you should.  Stop now, and finally memorize this fact.</dd>
+<dt>Why can't I do <tt class="docutils literal">print "How old are <span class="pre">you?"</span> , raw_input()</tt>?</dt>
+<dd>You'd think that'd work, but Python doesn't recognize that as valid.  The only answer I can really give is, you just can't.</dd>
+</dl>
+</div>
+        <!-- RST ENDS -->
+
+            <!-- /.help-icon -->
+        <div id="video_holder">
+            <h1>Video</h1>
+            <div id="video" class="row inner">
+                <div class="small-12 small-centered columns">
+                    <div data-paydiv_product="2" id="paydiv"><div class="row">
+    <div class="large-7 columns">
+        
+
+    
+        <h2><span>Purchase The Videos For $29.59<span></span></span></h2>
+
+    <p>For just $29.59 you can get access to all the videos for <a href="http://learnpythonthehardway.org/">Learn Python The Hard Way</a>, <b>plus</b> a PDF of
+    the book and no more popups all in this one location. For $29.59 you get:
+    </p>
+    <ul>
+        <li>All 52 videos, 1 per exercise, almost 2G of video.</li>
+        <li>A PDF of the book.</li>
+        <li>Email help from the author.</li>
+        <li><a href="https://paydiv.io/products/contents/2/">See a list of everything you get before you buy.</a></li>
+    </ul>
+
+    <p>When you buy the videos they will immediately show up <b>right here</b>
+    without any hassles.
+    </p>
+
+    
+
+    <hr>
+    <a href="https://paydiv.io/access/reactivate/">Already Paid? Reactivate Your Purchase Right Now!</a>
+
+    </div>
+    <div class="large-5 columns">
+        
+    
+    <h2><span>Buying Is Easy</span></h2>
+    
+
+    <p>Buying is easy.  Just fill out the form below and we'll get started.
+    </p>
+
+    <form action="https://paydiv.io/access/buy/2/" method="POST" id="purchase_form">
+        <label>
+            <span>Full Name</span>
+            <input type="text" size="20" name="full_name" placeholder="Full Name">
+        </label>
+            
+        <label>
+            <span>Email Address</span>
+            <input type="text" size="20" name="email" placeholder="Email Address">
+        </label>
+
+        
+
+        <div class="large-12 columns">
+  <label for="paywith_credit">
+    <input type="radio" checked="" name="payment_method" value="ccard" id="paywith_credit">
+    <span class="imgs">
+      <img src="./Exercise 12_files/pay_visa.png" alt="visa">
+      <img src="./Exercise 12_files/pay_master.png" alt="mastercard">
+      <img src="./Exercise 12_files/pay_express.png" alt="american express">
+    </span>
+    Pay With Credit Card (by Stripe™)
+  </label>
+</div>
+<div class="large-12 columns">
+  <label for="paywith_paypal">
+    <input type="radio" name="payment_method" value="paypal" id="paywith_paypal">
+    <span class="imgs">
+      <img src="./Exercise 12_files/pay_pal.png" alt="paypal">
+    </span>
+    Use your PayPal™ account.
+  </label>
+</div>
+
+
+        <button id="buy-button" type="submit">Buy Learn Python The Hard Way, 3rd Edition</button>
+
+      
+    </form>
+
+    </div>
+</div></div>
+                </div>
+            </div>
+        </div>
+
+        </div><!-- /#main -->
+
+        <div class="ad-deck gold" id="footer">
+            <ul class="retailers clearfix">
+                <li>
+                    <a href="https://paydiv.io/access/buy/2/">
+                        <div class="retailer-name">Zed Shaw</div>
+                        <div class="book-type">PDF + Videos + Updates</div>
+                        <div class="book-price">$29.95</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.amazon.com/gp/product/0321884914/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0321884914&linkCode=as2&tag=lepythhawa-20">
+                        <div class="retailer-name">Amazon</div>
+                        <div class="book-type">Paper + DVD</div>
+                        <div class="book-price">$29.95</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.amazon.com/gp/product/B00FGUS948/ref=as_li_tf_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=B00FGUS948&linkCode=as2&tag=lepythhawa-20">
+                        <div class="retailer-name">Amazon</div>
+                        <div class="book-type">Kindle (No Videos)</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.barnesandnoble.com/w/learn-python-the-hard-way-zed-shaw/1112055406?ean=9780321884916">
+                        <div class="retailer-name">B&amp;N</div>
+                        <div class="book-type">Paper + DVD</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.barnesandnoble.com/w/learn-python-the-hard-way-zed-shaw/1112055406?ean=9780133124347&itm=1&usri=learn+python+the+hard+way">
+                        <div class="retailer-name">B&amp;N</div>
+                        <div class="book-type">Nook (No Video)</div>
+                        <div class="book-price">$17.27</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.informit.com/store/learn-python-the-hard-way-a-very-simple-introduction-9780321884916">
+                        <div class="retailer-name">InformIT</div>
+                        <div class="book-type">eBook + Paper</div>
+                        <div class="book-price">$43.19</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://ruby.learncodethehardway.org/book/">
+                        <div class="retailer-name">Interested In Ruby?</div>
+                        <div class="book-type">Ruby is also a great language.</div>
+                        <div class="book-price">Learn Ruby The Hard Way</div>
+                    </a>
+                </li>
+
+            </ul><!-- /.places -->
+        </div><!-- /#ad-deck -->
+
+        <script src="./Exercise 12_files/jquery.js"></script>
+        <script src="./Exercise 12_files/index.js"></script>
+        <script src="./Exercise 12_files/jzed.js"></script>
+        <script src="./Exercise 12_files/video.js"></script>
+        <link rel="stylesheet" href="https://paydiv.io/static/js/videojs/video-js.css">
+        <script src="./Exercise 12_files/paydiv.js"></script>
+        <script src="./Exercise 12_files/app.js"></script>
+        <script src="./Exercise 12_files/littools.js"></script>
+        <script type="text/javascript">
+        
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-24168052-1']);
+        _gaq.push(['_trackPageview']);
+        
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+        
+        </script>
+
+
+        <script src="./Exercise 12_files/littools.js"></script>
+
+        
+
+
+</div><span style="height: 20px; width: 40px; position: absolute; opacity: 0.85; z-index: 8675309; display: none; cursor: pointer; border: none; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAYAAAD/Rn+7AAADU0lEQVR42s2WXUhTYRjHz0VEVPRFUGmtVEaFUZFhHxBhsotCU5JwBWEf1EWEEVHQx4UfFWYkFa2biPJiXbUta33OXFtuUXMzJ4bK3Nqay7m5NeZq6h/tPQ+xU20zugjOxR/+7/O8539+5znnwMtNTExwJtMb3L/fiLv3botCSmUjeCaejTOb39AiFothfHxcFIrHY8RksZjBsckJcOIRMfFsHD/SsbExUYpnI8DR0dGUGjSb0byhEJp5Uqg5CTSzc2CQleJbMEj9/ywBcGRkJEk9DQqouEVQT1sK444yWI9UonmTjGqauVLEIlHa9x8lAMbj8SSpp0rwKGMVvg8P46vbg0C7na8z8JsMcgHe7jlEa+edRhiLy8n/TUMfu6EvLElk+U0WtGwrTrdfAGQf5J8iiK4LVzDU28t8JtMSocf8E+l68myaNFXm/6rXslLK7ay5TOunuRvZWpJuvwAYjUaTpOIWoquuAZ219RTaxKYp9BbjycoN5FvL9qH9TBX5rvoGdJythvXYSTxdtRnWylO/ZdqrLsGwszzhWQ593z2KlAwCYCQSSZJ6ehZ0W7bD9VBLgN0NCqr3qR7R2rBrL3pu3Sb/7nDlz2uy6cG0OXk0GTbZXzNp8trsPAQdTj6frlWzN2DcXZGKQQAMh8NJ6rpyHe+PnkCr/CAFdZyvpfpjuvkifLF9wIt1Wwlo0OHie1RvWrKa93RjzfzliTzPKz3ltB0/Tevmwp14wGUgHAzSOoUEwFAolFaaBSuhnslPRkJexUJtZ6v5HtUeLswl33n1BgEY5fvhs9sJ3FAiT+QYyyvoAQJuD0KBAFRTJNAuz5/s3gJgMBhMJwrVFRThM5tY5zUF/A4X1f2fvQTRLCuBreoim0YmAbqNJryvPEXeeq46kaNdkQ/1HCncbJKPs9ZSv2VHGfWsZ2hfkhKAfr8/pdxWKx4wwD69PmVfNSOL+lr2w+gYqHpWDtXt1xQ8AMlWU0e1lqLd/APRHoP8AJqWrQG9gYxcPMsvSJUvAA4MDKTUJ7MZLaVy8v+qT21tcDx/OemePr0RTkNrur4A6PP5xCgBsL+/X4wiQDpuuVxOeL1eMYmYeDY6sOp0z+B0OuHxeEQhxkJMFosJiSO/UinOI/8Pc+l7KKArAT8AAAAASUVORK5CYII=); background-color: transparent;"></span></body></html>
